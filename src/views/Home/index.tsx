@@ -1,64 +1,60 @@
 import { useEffect, useState } from 'react';
-import { fetchData } from './utils';
 import { Beer } from '../../types';
-import { Link as RouterLink } from 'react-router-dom';
-import { Button, Checkbox, Paper, TextField, Link } from '@mui/material';
+import { Button, Paper} from '@mui/material';
+import Grid from '@mui/material/Unstable_Grid2';
 import styles from './Home.module.css';
+import * as LocalStorage from '../../api/localStorage';
+import BeerCard from '../../components/BeerCard';
 
 const Home = () => {
-  const [beerList, setBeerList] = useState<Array<Beer>>([]);
-  const [savedList, setSavedList] = useState<Array<Beer>>([]);
+  const [savedList, setSavedList] = useState<Array<Beer>>(LocalStorage.getFavourites());
+  const placeholedrImageUrl = '/beer.jpg';
 
-  // eslint-disable-next-line
-  useEffect(fetchData.bind(this, setBeerList), []);
+  useEffect(() => {
+    console.log(savedList.length, LocalStorage.getFavourites().length)
+    if(savedList.length !== LocalStorage.getFavourites().length){
+      setSavedList(LocalStorage.getFavourites())
+    }
+  }, [savedList]);
+
+  const handleRemoveAllItemsClick = () => {
+    LocalStorage.clearFavourites();
+    setSavedList([])
+  }
 
   return (
+    <>
     <article>
       <section>
-        <main>
+        <main className={styles.pageContainer}>
           <Paper>
-            <div className={styles.listContainer}>
-              <div className={styles.listHeader}>
-                <TextField label='Filter...' variant='outlined' />
-                <Button variant='contained'>Reload list</Button>
-              </div>
-              <ul className={styles.list}>
-                {beerList.map((beer, index) => (
-                  <li key={index.toString()}>
-                    <Checkbox />
-                    <Link component={RouterLink} to={`/beer/${beer.id}`}>
-                      {beer.name}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
+            <img
+              alt="Brewary logo"
+              className={styles.coverImage}
+              src={placeholedrImageUrl}
+            />
           </Paper>
-
           <Paper>
             <div className={styles.listContainer}>
               <div className={styles.listHeader}>
-                <h3>Saved items</h3>
-                <Button variant='contained' size='small'>
+                <h3>Favourites</h3>
+                <Button variant='contained' size='small' onClick={handleRemoveAllItemsClick}>
                   Remove all items
                 </Button>
               </div>
-              <ul className={styles.list}>
-                {savedList.map((beer, index) => (
-                  <li key={index.toString()}>
-                    <Checkbox />
-                    <Link component={RouterLink} to={`/beer/${beer.id}`}>
-                      {beer.name}
-                    </Link>
-                  </li>
+              <Grid container spacing={2}>
+                {savedList.map((beer) => (
+                  <Grid key={beer.id} xs={12} sm={6} md={4} lg={3}>
+                    <BeerCard key={beer.id} beer={beer}/>
+                  </Grid>
                 ))}
-                {!savedList.length && <p>No saved items</p>}
-              </ul>
+              </Grid>
             </div>
           </Paper>
         </main>
       </section>
     </article>
+    </>
   );
 };
 

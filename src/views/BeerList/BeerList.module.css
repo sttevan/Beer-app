@@ -1,0 +1,22 @@
+.flexColumn {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    align-content: flex-start;
+
+}
+
+.flexRow {
+    display: flex;
+    align-items: center;
+    align-content: center;
+    justify-content: space-between;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+
+.fullWidth {
+    width: 100%;
+    margin-bottom: 1rem;
+}

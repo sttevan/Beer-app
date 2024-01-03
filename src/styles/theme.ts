@@ -1,14 +1,19 @@
 import { createTheme } from '@mui/material/styles';
-import { green, blue } from '@mui/material/colors';
 
 const theme = createTheme({
   palette: {
     primary: {
-      main: blue[800],
+      main: '#5C3526', 
     },
     secondary: {
-      main: green[500],
+      main: '#FBB656', 
     },
+    background: {
+      default: '#F5F5F5', 
+    },
+  },
+  typography: {
+    fontFamily: "Grenze Gotisch Medium"
   },
   components: {
     MuiLink: {

@@ -3,6 +3,7 @@ import { Beer } from '../../types';
 import handle from '../../utils/error';
 
 const fetchData = (setData: (data: Beer) => void, id?: string) => {
+  console.log(id)
   if (!id) return;
 
   (async () => {

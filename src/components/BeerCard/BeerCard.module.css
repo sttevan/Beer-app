@@ -1,0 +1,50 @@
+.paperContainer {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.image {
+    width: 100%;
+    object-fit: cover;
+    border-top-left-radius: inherit;
+    border-top-right-radius: inherit;
+}
+.imageContainer {
+    width: 100%;
+    border-top-left-radius: inherit;
+    border-top-right-radius: inherit;
+    position: relative;
+}
+
+.favouriteIcon {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: white;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.paperContainer .breweryTypeIcon {
+    width: 0.8em;
+    height: 0.8em;
+}
+
+.infoContainer {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    padding: 12px 1vw;
+    justify-content: space-between;
+}
+
+.subtitle .beerType {
+    margin-left: 0.4em;
+}
+
+.subtitle {
+    color: gray;
+    align-items: center;
+}
