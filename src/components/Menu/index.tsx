@@ -1,3 +1,5 @@
+import React from 'react';
+import { Link as RouterLink } from 'react-router-dom';
 import {
   Box,
   Divider,
@@ -12,8 +14,6 @@ import {
 } from '@mui/material';
 import SportsBar from '@mui/icons-material/SportsBar';
 import HomeIcon from '@mui/icons-material/Home';
-import React from 'react';
-import { Link as RouterLink } from 'react-router-dom';
 import TopBar from '../TopBar';
 
 const drawerWidth = 240;
@@ -58,7 +58,7 @@ export default function ResponsiveDrawer(props: Props) {
   );
 
   return (
-    <Box sx={{ display: 'flex' }}>
+    <Box sx={{ display: 'flex', height: '100%' }}>
       <TopBar drawerWidth={drawerWidth} handleDrawerToggle={handleDrawerToggle} />
       <Box
         component='nav'
@@ -94,8 +94,8 @@ export default function ResponsiveDrawer(props: Props) {
         component='main'
         sx={{
           flexGrow: 1,
-          p: 3,
-          width: { sm: `calc(100% - ${drawerWidth}px)`, background: '#f7f7f7' },
+          height: '100%',
+          width: { sm: `calc(100% - ${drawerWidth}px)` },
         }}
       >
         <Toolbar />

@@ -13,7 +13,7 @@ const theme = createTheme({
     },
   },
   typography: {
-    fontFamily: "Grenze Gotisch Medium"
+    fontFamily: "Grenze Gotisch Medium",
   },
   components: {
     MuiLink: {

@@ -1,16 +1,15 @@
 import { useEffect, useLayoutEffect, useRef, useState } from 'react';
-import { Beer, Metadata, SORT } from '../../types';
-import { fetchData, fetchMetadata, createApiParams } from './utils';
-import { Avatar, List, ListItemAvatar, ListItemButton, ListItemText } from '@mui/material';
 import { useLocation, useNavigate } from 'react-router-dom';
+import { Avatar, List, ListItemAvatar, ListItemButton, ListItemText } from '@mui/material';
 import BeerTypeIcon from '../../components/BeerTypeIcon';
 import BeerTypeFilter from '../../components/BeerTypeFilter';
-import { TYPE } from '../../types';
 import SortToggle from '../../components/SortToggle';
 import BeerNameSearch from '../../components/BeerNameSearch';
-import styles from './BeerList.module.css';
-import FavouriteIcon from '../../components/FavouriteIcon/Index';
+import FavouriteIcon from '../../components/FavouriteIcon';
+import { fetchData, fetchMetadata, createApiParams } from './utils';
 import { capitalise } from '../../utils';
+import { Beer, Metadata, SORT, TYPE } from '../../types';
+import styles from './BeerList.module.css';
 
 
 

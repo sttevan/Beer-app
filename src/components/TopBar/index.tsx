@@ -26,7 +26,7 @@ const TopBar = (props: Props) => {
           <MenuIcon />
         </IconButton>
         <Typography variant="h6" noWrap component="div">
-          Beer Wiki
+          Brewery Wiki
         </Typography>
       </Toolbar>
     </AppBar>

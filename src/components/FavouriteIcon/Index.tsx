@@ -1,16 +1,17 @@
-import React, { useEffect, useState } from 'react';
+import React, { Dispatch, SetStateAction, useEffect, useState } from 'react';
 import { SvgIconTypeMap, Tooltip } from '@mui/material';
-import * as LocalStorage from '../../api/localStorage';
 import StarBorderRoundedIcon from '@mui/icons-material/StarBorderRounded';
 import StarRateRoundedIcon from '@mui/icons-material/StarRateRounded';
-import { Beer } from '../../types';
 import { DefaultComponentProps } from '@mui/material/OverridableComponent';
+import * as LocalStorage from '../../api/localStorage';
+import { Beer } from '../../types';
 
 interface FavouriteIconProps {
   beer: Beer;
+  clickHandlerFunction?: Dispatch<SetStateAction<Beer[]>>
 }
 
-const FavouriteIcon = ({ beer, ...svgProps }: FavouriteIconProps &  DefaultComponentProps<SvgIconTypeMap<{}, "svg">>) => {
+const FavouriteIcon = ({ beer, clickHandlerFunction, ...svgProps }: FavouriteIconProps &  DefaultComponentProps<SvgIconTypeMap<{}, "svg">>) => {
     const [isFavourite, setIsFavourite] = useState<boolean>(false);
 
 
@@ -23,6 +24,7 @@ const FavouriteIcon = ({ beer, ...svgProps }: FavouriteIconProps &  DefaultCompo
         event.stopPropagation();
         LocalStorage.removeFavourite(beer.id);
         setIsFavourite(!isFavourite)
+        clickHandlerFunction && clickHandlerFunction(LocalStorage.getFavourites)
     }
 
     const handleAddClick = (event: React.MouseEvent<SVGSVGElement>, beer: Beer) => {

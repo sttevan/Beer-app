@@ -1,12 +1,17 @@
-import { Box, Paper, Stack, Typography } from '@mui/material';
-import styles from './BeerCard.module.css';
-import { Beer } from '../../types';
-import BeerTypeIcon from '../BeerTypeIcon';
-import FavouriteIcon from '../../components/FavouriteIcon/Index';
+import { Dispatch, SetStateAction } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { Box, Paper, Stack, Typography } from '@mui/material';
+import BeerTypeIcon from '../BeerTypeIcon';
+import FavouriteIcon from '../FavouriteIcon';
+import { Beer } from '../../types';
+import styles from './BeerCard.module.css';
+interface FavouriteIconProps {
+    beer: Beer;
+    favouriteClickHandlerFunction?: Dispatch<SetStateAction<Beer[]>>
+  }
 
 
-const BeerCard = ({ beer }: { beer: Beer }) => {
+const BeerCard = ({ beer, favouriteClickHandlerFunction }: FavouriteIconProps) => {
 
     const navigate = useNavigate();
     const placeholedrImageUrl = '/beer.jpg'
@@ -17,7 +22,7 @@ const BeerCard = ({ beer }: { beer: Beer }) => {
   return (
     <Paper elevation={3} className={styles.paperContainer} onClick={(e) => onBeerClick(beer.id)}>
         <Box className={styles.imageContainer}>
-            <FavouriteIcon beer={beer} classes={{ root: styles.favouriteIcon }}/>
+            <FavouriteIcon beer={beer} classes={{ root: styles.favouriteIcon }} clickHandlerFunction={favouriteClickHandlerFunction} />
 
             <img
             alt="Brewary logo"

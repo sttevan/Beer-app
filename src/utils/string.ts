@@ -5,7 +5,7 @@ const capitalise = (word: string) =>{
 }
 
 const buildMapsUrl = (lat: string, lng: string ) => {
-    return `http://maps.google.com/?ie=UTF8&hq=${lat},${lng}+(label)&ll=${lat},${lng}&z=13`
+    return `http://maps.google.com/?ie=UTF8&q=${lat},${lng}+(label)&ll=${lat},${lng}&z=13`
 }
 
 export { getStringForApi,  capitalise, buildMapsUrl};

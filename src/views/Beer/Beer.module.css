@@ -1,28 +1,21 @@
 .pageContainer {
     display: flex;
-    flex-direction: row;
-    height: 100vh;
+    height: 100%;
+    justify-content: space-between;
 }
 
 
 .infoContainer {
-    width: 100%;
     flex-grow: 3;
-    height: 100vh;
-    display: flex;
     justify-content: space-between;
-    flex-direction: column;
 }
 
 .imageContainer {
-    max-height: 100vh;
-    width: 100%;
     flex-grow: 1;
     overflow: hidden;
 }
 
 .header {
-    padding: 1.5em;
     justify-content: space-between
 }
 
@@ -42,8 +35,8 @@
 }
 
 .pageContainer .favouriteIcon {
-    width: 3em;
-    height: 3em;
+    width: 2.5em;
+    height: 2.5em;
     cursor: pointer;
 
 }
@@ -52,7 +45,6 @@
 }
 
 .subtitle {
-    padding: 1.5em;
     justify-content: flex-start;
     color: gray;
     align-items: center;

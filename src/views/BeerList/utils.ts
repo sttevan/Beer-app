@@ -1,6 +1,6 @@
 import { getBeerList, getBeerMetaData } from '../../api';
-import { ApiParams, Beer, Metadata, SORT, TYPE } from '../../types';
 import handle from '../../utils/error';
+import { ApiParams, Beer, Metadata, SORT, TYPE } from '../../types';
 
 const fetchData = (setData: (data: Array<Beer>) => void, setLoading: (isLoading: boolean) => void,  params?: ApiParams) => {
   setLoading(true);

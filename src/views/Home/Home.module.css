@@ -5,7 +5,6 @@
 .listContainer {
   padding: 20px;
   margin-bottom: 20px;
-  background: #fff;
 }
 
 .listHeader {
@@ -19,9 +18,11 @@
 }
 
 .coverImage {
-    width: 100%;
-    object-fit: cover;
-    border-top-left-radius: inherit;
-    border-top-right-radius: inherit;
-
+  width: 100%;
+  max-height: 480px;
+  object-fit: cover;
+  border-radius: 4px;
+  filter: brightness(58%);
+  -webkit-filter: brightness(58%);
+  -moz-filter: brightness(58%);
 }

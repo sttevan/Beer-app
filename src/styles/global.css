@@ -1,3 +1,13 @@
-a {
-  /* text-decoration: none; */
+html, body {
+  display: flex;
+  min-height: 100vh;
+}
+
+body {
+  flex: 1 1 0%;
+}
+
+#root {
+  flex: 1 1 0%;
+  min-height: 100vh;
 }

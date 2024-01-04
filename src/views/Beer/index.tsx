@@ -10,7 +10,7 @@ import { Beer as IBeer } from '../../types';
 import { fetchData } from './utils';
 import { buildMapsUrl, capitalise } from '../../utils';
 import BeerTypeIcon from '../../components/BeerTypeIcon';
-import FavouriteIcon from '../../components/FavouriteIcon/Index';
+import FavouriteIcon from '../../components/FavouriteIcon';
 import styles from './Beer.module.css';
 
 
@@ -25,11 +25,9 @@ const Beer = () => {
 
   return (
     <>
-    {beer && (<Box  className={styles.pageContainer}>
-      <Box className={styles.infoContainer}>
-        <Stack  spacing={2} direction="column">
-
-          <Stack spacing={2} direction="column">
+    {beer && (<Stack direction="row" gap={1.5}  className={styles.pageContainer}>
+      <Stack gap={1.5} className={styles.infoContainer}>
+          <Stack spacing={2}>
             <Stack direction="row" className={styles.header}>
 
               <Typography variant="h2">{beer?.name}</Typography>
@@ -47,7 +45,6 @@ const Beer = () => {
               Lorem ipipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
             </Typography>
           </Stack>
-        </Stack>
         <Stack  spacing={2} direction="column">
           <Stack  spacing={2} direction="row"  className={styles.contactInfo}>
             <Box>
@@ -86,15 +83,15 @@ const Beer = () => {
           </Stack>
         </Stack>
       
-      </Box>
-      <Box className={styles.imageContainer}>
+      </Stack>
+      <Box className={styles.imageContainer} display={{ xs: 'none', md: 'block', lg: 'block'}}>
         <img
           alt="Brewary logo"
           className={styles.coverImage}
           src={placeholedrImageUrl}
         />
       </Box>
-    </Box>)}
+    </Stack>)}
     </>
 
   );
